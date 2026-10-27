@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satya Terra Bhinneka</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="logo.jpg" type="image/x-icon" />
+  <!-- Eksternal CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR UTAMA -->
+  <div class="navigation">
+    <!-- Logo / Nama Universitas (Rata Kiri) -->
+    <div class="brand">
+      <a href="#" onclick="showSection('home')">Universitas Satya Terra Bhinneka</a>
+    </div>
+
+    <!-- Seluruh Menu Navigasi & Login (Rata Kanan) -->
+    <div class="nav-right">
+      <ul class="items">
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Fakultas</a></li>
+        <li><a href="#">Mitra</a></li>
+        <li><a href="#">Berita</a></li>
+        <li><a href="#">Layanan</a></li>
+      </ul>
+      <a class="login-btn" href="#" onclick="showSection('login')">Login</a>
+    </div>
+  </div>
+
+  <!-- HALAMAN HOME / BERANDA -->
+  <div id="homeSection" class="section active">
+    <div class="hero-container">
+      <h1>Selamat Datang di Universitas. Satya Terra Bhinneka</h1>
+      <p>Silakan klik tombol Login di pojok kanan atas untuk masuk ke sistem.</p>
+    </div>
+  </div>
+
+  <!-- HALAMAN FORM LOGIN -->
+  <div id="loginSection" class="section">
+    <div class="auth-card">
+      <h2>Login Portal</h2>
+      <p class="subtitle">Masuk menggunakan akun Anda</p>
+
+      <form onsubmit="handleAuth(event, 'Login berhasil!')">
+        <div class="input-group">
+          <label for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" placeholder="Masukkan username" required />
+        </div>
+
+        <div class="input-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Masukkan password" required />
+        </div>
+
+        <button type="submit" class="btn-primary">Masuk</button>
+      </form>
+
+      <div class="switch-link">
+        <p>Belum punya akun? <a href="#" onclick="showSection('register')">Daftar / Register</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALAMAN FORM REGISTER -->
+  <div id="registerSection" class="section">
+    <div class="auth-card">
+      <h2>Register Akun</h2>
+      <p class="subtitle">Buat akun baru Anda</p>
+
+      <form onsubmit="handleAuth(event, 'Pendaftaran berhasil! Silakan Login.')">
+        <div class="input-group">
+          <label for="regNama">Nama Lengkap</label>
+          <input type="text" id="regNama" placeholder="Masukkan nama lengkap" required />
+        </div>
+
+        <div class="input-group">
+          <label for="regUsername">Username</label>
+          <input type="text" id="regUsername" placeholder="Buat username" required />
+        </div>
+
+        <div class="input-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="Buat password" required />
+        </div>
+
+        <button type="submit" class="btn-primary">Register</button>
+      </form>
+
+      <div class="switch-link">
+        <p>Sudah punya akun? <a href="#" onclick="showSection('login')">Login di sini</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT NAVIGASI HALAMAN -->
+  <script>
+    function showSection(sectionName) {
+      document.getElementById('homeSection').classList.remove('active');
+      document.getElementById('loginSection').classList.remove('active');
+      document.getElementById('registerSection').classList.remove('active');
+
+      if (sectionName === 'home') {
+        document.getElementById('homeSection').classList.add('active');
+      } else if (sectionName === 'login') {
+        document.getElementById('loginSection').classList.add('active');
+      } else if (sectionName === 'register') {
+        document.getElementById('registerSection').classList.add('active');
+      }
+    }
+
+    function handleAuth(event, message) {
+      event.preventDefault();
+      alert(message);
+    }
+  </script>
+
+</body>
+</html>
